@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* Cyberpunk black + neon green theme with lightning */
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 130 90% 88%;
+
+    --surface: 0 0% 5%;
+    --surface-elevated: 0 0% 7%;
+    --surface-hover: 130 30% 10%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 130 90% 88%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 130 90% 88%;
+
+    --primary: 135 100% 55%;
+    --primary-foreground: 0 0% 3%;
+    --primary-glow: 130 100% 65%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 130 90% 88%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 130 15% 55%;
+
+    --accent: 130 100% 50%;
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 350 95% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --gold: 48 100% 60%;
+    --silver: 220 10% 75%;
+    --bronze: 28 70% 50%;
+
+    --border: 130 60% 20%;
+    --input: 130 40% 15%;
+    --ring: 135 100% 55%;
+
+    --cod-black: 0 0% 10%;
+    --cod-red: 0 85% 60%;
+    --cod-green: 130 100% 55%;
+    --cod-yellow: 48 100% 55%;
+    --cod-blue: 215 90% 60%;
+    --cod-cyan: 185 85% 55%;
+    --cod-pink: 320 80% 65%;
+    --cod-white: 0 0% 98%;
+    --cod-grey: 0 0% 65%;
+
+    --gradient-bg:
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(135 100% 25% / 0.25), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 110%, hsl(135 100% 30% / 0.18), transparent 60%),
+      linear-gradient(180deg, hsl(0 0% 2%) 0%, hsl(0 0% 4%) 100%);
+
+    --gradient-panel: linear-gradient(135deg, hsl(0 0% 5% / 0.95) 0%, hsl(130 40% 6% / 0.85) 100%);
+    --gradient-green: linear-gradient(135deg, hsl(135 100% 55%) 0%, hsl(150 100% 45%) 100%);
+
+    --shadow-glow: 0 0 40px hsl(135 100% 50% / 0.35), 0 0 80px hsl(135 100% 50% / 0.15);
+    --shadow-glow-sm: 0 0 15px hsl(135 100% 50% / 0.5);
+    --shadow-card: 0 8px 30px -10px hsl(135 100% 50% / 0.2), 0 0 0 1px hsl(135 60% 20% / 0.5);
+    --shadow-inset: inset 0 0 30px hsl(135 100% 50% / 0.08);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 130 90% 88%;
+    --sidebar-primary: 135 100% 55%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 130 90% 88%;
+    --sidebar-border: 130 60% 20%;
+    --sidebar-ring: 135 100% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  body {
+    @apply text-foreground;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-feature-settings: "tnum" 1;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-mono, code, pre {
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+@layer components {
+  .cyber-grid {
+    background-image:
+      linear-gradient(hsl(135 100% 50% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(135 100% 50% / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cyber-frame {
+    position: relative;
+    background: var(--gradient-panel);
+    border: 1px solid hsl(135 60% 22%);
+    box-shadow: var(--shadow-card), var(--shadow-inset);
+    clip-path: polygon(
+      18px 0, 100% 0,
+      100% calc(100% - 18px),
+      calc(100% - 18px) 100%,
+      0 100%, 0 18px
+    );
+  }
+
+  .cyber-frame-sm {
+    position: relative;
+    background: var(--gradient-panel);
+    border: 1px solid hsl(135 60% 22%);
+    clip-path: polygon(
+      10px 0, 100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%, 0 10px
+    );
+  }
+
+  .corner-brackets::before,
+  .corner-brackets::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: 2px solid hsl(var(--primary));
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.8));
+  }
+  .corner-brackets::before {
+    top: -2px; left: -2px;
+    border-right: none; border-bottom: none;
+  }
+  .corner-brackets::after {
+    bottom: -2px; right: -2px;
+    border-left: none; border-top: none;
+  }
+
+  .neon-text {
+    color: hsl(var(--primary));
+    text-shadow:
+      0 0 6px hsl(var(--primary) / 0.85),
+      0 0 18px hsl(var(--primary) / 0.55),
+      0 0 36px hsl(var(--primary) / 0.3);
+  }
+
+  .neon-text-red {
+    color: hsl(var(--destructive));
+    text-shadow:
+      0 0 6px hsl(var(--destructive) / 0.85),
+      0 0 18px hsl(var(--destructive) / 0.5);
+  }
+
+  .neon-icon {
+    filter: drop-shadow(0 0 6px hsl(var(--primary) / 0.85))
+            drop-shadow(0 0 14px hsl(var(--primary) / 0.45));
+  }
+
+  .neon-icon-red {
+    filter: drop-shadow(0 0 6px hsl(var(--destructive) / 0.85))
+            drop-shadow(0 0 14px hsl(var(--destructive) / 0.45));
+  }
+
+  .neon-icon-gold {
+    filter: drop-shadow(0 0 6px hsl(var(--gold) / 0.85))
+            drop-shadow(0 0 14px hsl(var(--gold) / 0.45));
+  }
+
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0, transparent 3px,
+      hsl(135 100% 50% / 0.03) 3px,
+      hsl(135 100% 50% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  @keyframes lightning-flash {
+    0%, 92%, 100% { opacity: 0.15; }
+    93%, 95%, 97% { opacity: 1; }
+    94%, 96% { opacity: 0.3; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.45); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.85), 0 0 70px hsl(var(--primary) / 0.4); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  @keyframes scan-down {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.6; }
+  }
+
+  .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+  .animate-lightning { animation: lightning-flash 5s ease-in-out infinite; }
+  .animate-pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+  .animate-flicker { animation: flicker 4s linear infinite; }
+
+  .scan-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .scan-overlay::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      hsl(135 100% 50% / 0.06) 50%,
+      transparent 100%);
+    animation: scan-down 8s linear infinite;
+  }
+}

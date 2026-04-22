@@ -8,6 +8,8 @@ import { LiveStatusBar } from "@/components/LiveStatusBar";
 import { AdminLeaderboard } from "@/components/AdminLeaderboard";
 import { ReasonsAnalytics } from "@/components/ReasonsAnalytics";
 import { PlayerLookup } from "@/components/PlayerLookup";
+import { ServerStatusWidget } from "@/components/ServerStatusWidget";
+
 
 import { cn } from "@/lib/utils";
 
